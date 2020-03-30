@@ -1,22 +1,24 @@
 #include <iostream>
 using namespace std;
-class data
+class Data
 {
+  private:
+	int age = 0;
+
   public:
 	void askAge()
 	{
-		int age = 0;
 		cout << "Enter your age: " << endl;
 		cin >> age;
-		subtractAge(age);
+		subtractAge();
 	}
-	void subtractAge(int age)
+	void subtractAge()
 	{
 		if (21 > age)
 			age = 21 - age;
-		decideAge(age);
+		decideAge();
 	}
-	void decideAge(int age)
+	void decideAge()
 	{
 		if (21 <= age)
 			cout << "You are old enough to drink your age is " << age << endl;
@@ -26,7 +28,7 @@ class data
 };
 int main()
 {
-	data obj1;
+	Data obj1;
 	obj1.askAge();
 }
 // Code Written By ERIK TORRES
