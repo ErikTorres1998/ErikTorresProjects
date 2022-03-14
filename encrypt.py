@@ -10,7 +10,6 @@ class ShiftCipher():
         finalArr = []
         self._secret = list(self._secret.lower().replace(" ", ""))
         
-        print(self._secret)
         for item in self._secret:
             for i in range(len(self.alphabet)):
                 
