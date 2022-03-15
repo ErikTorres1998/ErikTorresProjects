@@ -8,12 +8,19 @@ class ShiftCipher():
         
     def encrypt(self):
         finalArr = []
-        self._secret = list(self._secret.lower().replace(" ", ""))
+        self._secret = list(self._secret.lower())
         
-        for item in self._secret:
+        for item in range(len(self._secret)):
+            
+            if self._secret[item] == " ":
+                finalArr.insert(item,self._secret[item]) # insert at specific index and element
+                
+            if self._secret[item] in self.specialChars:
+                finalArr.append(self._secret[item])
+            
             for i in range(len(self.alphabet)):
                 
-                if self.alphabet[i] == item:
+                if self.alphabet[i] == self._secret[item]:
                     
                     if i + self._number >= len(self.alphabet):
                         finalArr.append(self.alphabet[i+self._number-len(self.alphabet)])
@@ -21,8 +28,6 @@ class ShiftCipher():
                     else:
                         finalArr.append(self.alphabet[i+self._number])
                         
-        if item in self.specialChars:
-            finalArr.append(item)
         return ''.join(finalArr)
 obj = ShiftCipher("eat ass",3)
 print(obj.encrypt())
