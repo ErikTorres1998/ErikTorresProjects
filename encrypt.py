@@ -13,7 +13,7 @@ class ShiftCipher():
         for item in range(len(self._secret)):
             
             if self._secret[item] == " ":
-                finalArr.insert(item,self._secret[item]) # insert at specific index and element
+                finalArr.insert(item,self._secret[item]) # insert at specific index and specific element list.insert(position, element)
                 
             if self._secret[item] in self.specialChars:
                 finalArr.append(self._secret[item])
