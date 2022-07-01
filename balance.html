@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+{% load static %}
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="{% static 'js/jquery-3.3.1.min' %}" rel="stylesheet">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ </head>
+ 
+<body>
+{% if user.is_authenticated %}
+
+<center>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4"></div>
+  <h5 class="my-0 mr-md-auto font-weight-normal"><a href="#" class="text-dark"></a><img src="{% static 'logo1.png' %}" alt="brand logo"  /></h5>
+</center>
+
+
+
+
+<div class="container">
+
+  <div class="jumbotron">
+  <h3> Hello, {{user.username}} ! </h3>
+  <p><a  onclick="myFunction()" id="startConfetti" class="btn btn-success btn-lg" href="#" role="button">YES</a></p>
+
+  <div class="form-group">
+    <form action="{% url 'logoutuser' %}" method=POST>
+      {% csrf_token %}
+    
+    </form>
+    {%  endif %}
+    </div>
+    
+ 
+
+    <form action=""  method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+    
+      <button id="myid" type="submit" name="submit"  class="btn btn-success" onclick="myFunction()"> Submit </button>
+    
+    
+    
+    </form>
+     
+</div>
+</div>
+
+<p><a  onclick="myFunction()" id="startConfetti" class="btn btn-success btn-lg" href="#myid" role="button">YES</a></p>
+
+
+<script>
+function myFunction() {
+swal("Congratulations! ", "You made your first deposit.", "success", );
+
+}
+</script>
+
+
+  <!-- https://getcssscan.com/css-box-shadow-examples  -->
+<style>
+.jumbotron{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  background-image: linear-gradient(110deg, #ffffff, #5cb85c);
+  }
+</style>
+
+       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+       
+       <script  src="{% static 'js/jquery-3.3.1.min' %}"></script>
+      <script  src="{% static 'js/funny.js' %}"></script>
+  </body>
+</html>
